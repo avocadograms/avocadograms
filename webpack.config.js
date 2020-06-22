@@ -12,7 +12,6 @@ module.exports = {
 	mode:'development',
 	devServer: {
 		port: 8080,
-		// contentBase: path.resolve(__dirname, 'build'),
 		publicPath: "/build/",
 		proxy: {
 			'/': {
