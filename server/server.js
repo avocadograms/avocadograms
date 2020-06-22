@@ -9,6 +9,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+app.get("/", (req, res) => {
+	res.status(200).sendFile(path.resolve(__dirname, "../client/index.html"));
+});
+
 // Global error handler
 app.use((err, req, res, next) => {
 	const defaultError = {
@@ -20,6 +24,6 @@ app.use((err, req, res, next) => {
 	res.status(errorObj.status).send(errorObj);
 });
 
-app.listen(port, () => {
+app.listen(PORT, () => {
 	console.log(`Listening on port ${PORT}...`);
 });
