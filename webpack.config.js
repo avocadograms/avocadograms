@@ -1,20 +1,33 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	devServer: {
-		publicPath: "/build/",
-		proxy: {},
-		port: 8080,
-		hot: true,
-	},
 	entry: ["./client/index.js"],
 	output: {
 		path: path.resolve(__dirname, "build"),
+		publicPath: "/",
 		filename: "bundle.js",
-		publicPath: "http://localhost:8080/build/",
 	},
-	plugins: [new webpack.HotModuleReplacementPlugin()],
+	mode:'development',
+	devServer: {
+		port: 8080,
+		// contentBase: path.resolve(__dirname, 'build'),
+		publicPath: "/build/",
+		proxy: {
+			'/': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+		},
+		hot: true,
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: './client/index.html',
+		}),
+		new webpack.HotModuleReplacementPlugin()
+	],
 	module: {
 		rules: [
 			{
@@ -30,7 +43,7 @@ module.exports = {
 			{
 				test: /\.(css|scss)$/,
 				exclude: /node_modules/,
-				use: ["css-loader", "sass-loader", "style-loader"],
+				use: ["style-loader", "css-loader", "sass-loader"],
 			},
 		],
 	},
