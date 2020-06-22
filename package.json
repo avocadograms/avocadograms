@@ -6,7 +6,7 @@
   "scripts": {
     "start": "set \"NODE_ENV=production\" && nodemon server/server.js",
     "build": "set \"NODE_ENV=production\" && webpack",
-    "dev": "NODE_ENV=development webpack-dev-server --open && NODE_ENV=production nodemon server/server.js"
+    "dev": "NODE_ENV=development webpack-dev-server --open && NODE_ENV=production nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
