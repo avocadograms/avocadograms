@@ -1,4 +1,8 @@
 /node_modules
 .DS_store
+<<<<<<< HEAD
 
 /build
+=======
+build/
+>>>>>>> c2095bd3625e6088a79e741f8786232589974da5
