@@ -1,40 +1,49 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: process.env.NODE_ENV,
-  entry: './client/index.js',
-  devServer: {
-    publicPath: '/build/',
-    proxy: {
-      '/': 'http://localhost:3000',
-    },
-    port: 8080,
-    hot: true,
-  },
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
-    publicPath: 'http://localhost:8080/build/',
-  },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
-  module: {
-    rules: [
-      {
-        test: /\.jsx?/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
+	entry: ["./client/index.js"],
+	output: {
+		path: path.resolve(__dirname, "build"),
+		publicPath: "/",
+		filename: "bundle.js",
+	},
+	mode:'development',
+	devServer: {
+		port: 8080,
+		publicPath: "/build/",
+		proxy: {
+			'/': {
+        target: 'http://localhost:3000/',
+        secure: false,
       },
-      {
-        test: /\.(css|scss)$/,
-        exclude: /node_modules/,
-        use: ['css-loader', 'sass-loader', 'style-loader'],
-      },
-    ],
-  },
+		},
+		hot: true,
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: './client/index.html',
+		}),
+		new webpack.HotModuleReplacementPlugin()
+	],
+	module: {
+		rules: [
+			{
+				test: /\.jsx?/,
+				exclude: /node_modules/,
+				use: {
+					loader: "babel-loader",
+					options: {
+						presets: ["@babel/preset-env", "@babel/preset-react"],
+					},
+				},
+			},
+			{
+				test: /\.(css|scss)$/,
+				exclude: /node_modules/,
+				use: ["style-loader", "css-loader", "sass-loader"],
+			},
+		],
+	},
 };
