@@ -23,11 +23,34 @@ userController.createUser = () => {
 }
 
 // userController.getUser = () => {
-
+//     const query = `SELECT users.*`
+//     db.query(query, (err, user) => {
+//         if(err){
+//             return next(err);    
+//         }
+//     res.locals.user = user;
+//     return next();
+//     })
 // }
 
 // userController.updateScore = () => {
-    
+    // const {wins} = req.params;
+    // const {losses} = req.params;
+    // const {user_id} = req.params;
+    // const query = {
+    //     text: `
+    //     UPDATE users 
+    //     SET (wins = ${wins}, losses = ${losses})   
+    //     WHERE user_id = ${user_id} 
+    //     `,
+    //   }
+    //db.query(query, (err, updated) => {
+    //  if(err){
+    //    return next(err);
+    //  }
+    //  res.locals.updated = updated;
+    //  return next();
+    //})
 // }
 
 module.exports = userController;
