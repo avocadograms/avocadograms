@@ -23,6 +23,7 @@
     "pg": "^8.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-draggable": "^4.4.3",
     "react-router": "^5.2.0",
     "sass": "^1.26.8",
     "sass-loader": "^8.0.2"
