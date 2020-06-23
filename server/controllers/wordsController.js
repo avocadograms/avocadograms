@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const WORDAPIKEY = require('../../private/secrets');
 
 const wordsController = {};
 
@@ -9,7 +10,7 @@ wordsController.findDefinition = (req, res, next) => {
 		method: 'GET',
 		headers: {
 			'x-rapidapi-host': 'wordsapiv1.p.rapidapi.com',
-			'x-rapidapi-key': '5281bc05f8msha5ed8591347a3b7p1fbdbfjsnebd5159a0363',
+			'x-rapidapi-key': WORDAPIKEY,
 		},
 		Accept: 'application/json',
 	})
@@ -22,4 +23,4 @@ wordsController.findDefinition = (req, res, next) => {
 
 wordsController.findDefinition();
 
-export default wordsController;
+module.exports = wordsController;
