@@ -1,94 +1,121 @@
 @import 'variables';
 
 body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 // ----------------------- Login Container ------------------------ //
 
 #loginContainer {
-	display: grid;
-	grid-template-columns: 4fr 3fr 4fr;
-	grid-template-rows: 20vh 50vh 30vh;
-	background-image: url('../../client/assets/avocado-background.jpg');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	width: 100%;
-	height: 100%;
+  display: grid;
+  grid-template-columns: 4fr 3fr 4fr;
+  grid-template-rows: 20vh 50vh 30vh;
+  background-image: url('../../client/assets/avocado-background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 
 #login {
-	// font-size: 18px;
-	grid-column: 2/3;
-	grid-row: 2/3;
-	// display: flex;
-	// flex-direction: column;
-	background-color: white;
-	border: 1px solid #8c8c8c;
-	border-radius: 5px;
-	box-shadow: 2px 2px 5px 1px #8c8c8c;
+  // font-size: 18px;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  // display: flex;
+  // flex-direction: column;
+  background-color: white;
+  border: 1px solid #8c8c8c;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px #8c8c8c;
 }
 
 #submitLogin {
-	height: 3em;
-	width: 6em;
-	border-radius: 5px;
-	border: 1px solid #00cc00;
-	background-color: #1aff1a;
-	outline: none;
+  height: 3em;
+  width: 6em;
+  border-radius: 5px;
+  border: 1px solid #00cc00;
+  background-color: #1aff1a;
+  outline: none;
 }
 
 #submitLogin:hover {
-	cursor: pointer;
-	background-color: #00cc00;
+  cursor: pointer;
+  background-color: #00cc00;
 }
 
 input {
-	// font-size: 14px;
+  // font-size: 14px;
 }
 
 #userLogin {
-	padding: 0.5em;
+  padding: 0.5em;
 }
 
 #passLogin {
-	padding: 0.5em;
+  padding: 0.5em;
 }
 
-// ----------------------- Main Container ------------------------ //
+// ----------------------- Game Container ------------------------ //
 #navbar {
-	background-color: #00802b;
-	width: 100%;
-	height: 60px;
+  background-color: #00802b;
+  width: 100%;
+  height: 60px;
 }
 
 #navbar h1 {
-	font-size: 40px;
-	text-align: center;
-	padding-top: 0.2em;
-	color: rgb(187, 226, 109);
+  font-size: 40px;
+  text-align: center;
+  padding-top: 0.2em;
+  color: rgb(187, 226, 109);
 }
 
 #gameContainer {
-	display: grid;
-	grid-template-columns: auto 600px auto;
+  display: grid;
+  grid-template-columns: auto 560px auto;
 }
 
 #board {
-	grid-column: 2/3;
-	grid-row: 3 / auto;
-	height: 600px;
-	border: 1px solid black;
-	border-radius: 5px;
-	box-shadow: 2px 2px 5px 1px #8c8c8c;
+  margin-top: 20px;
+  grid-column: 2/3;
+  height: 560px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px #8c8c8c;
+}
+
+#tilesContainer {
+  margin-top: 35px;
+  grid-column: 2/3;
+  height: 70px;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px #8c8c8c;
+}
+
+.tiles {
+  text-align: center;
+  margin: 0;
+  font-size: 25px;
+  height: 33px;
+  width: 33px;
+  border-radius: 5px;
+  border: 1px solid yellowgreen;
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px #5a6d34;
+}
+
+.tiles:hover {
+  cursor: pointer;
 }
 
 // ----------------------- Dictionary Tab ------------------------ //
 
 #dictionary-tab {
+<<<<<<< HEAD
 	margin: 0;
 	padding: 0;
 	position: fixed;
@@ -130,4 +157,25 @@ input {
 			}
 		}
 	}
+=======
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 20%;
+
+  #unexpanded-dict-tab {
+    background-color: #ffe599;
+    width: 2.5em;
+    border: 2px solid $dark-avocado-green;
+    border-left: none;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+    #expand-dict-tab-btn {
+      outline: none;
+      border: none;
+      background-color: transparent;
+    }
+  }
+>>>>>>> master
 }
