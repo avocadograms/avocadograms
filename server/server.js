@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const path = require('path');
+
 const router = require('./routes/routes');
 const app = express();
 const PORT = 3000;
@@ -22,7 +23,7 @@ app.use((err, req, res, next) => {
   const defaultError = {
     log: 'Express error handler caught unknown middleware error',
     status: 400,
-    message: { error: 'An error occurred' },
+    message: { error: `An error occurred, ${err}` },
   };
   const errorObj = { ...defaultError, err };
   res.status(errorObj.status).send(errorObj);

@@ -1,3 +1,5 @@
+@import 'variables';
+
 body {
   margin: 0;
   padding: 0;
@@ -56,7 +58,7 @@ input {
   padding: 0.5em;
 }
 
-// ----------------------- Main Container ------------------------ //
+// ----------------------- Game Container ------------------------ //
 #navbar {
   background-color: #00802b;
   width: 100%;
@@ -108,4 +110,28 @@ input {
 
 .tiles:hover {
   cursor: pointer;
+}
+
+// ----------------------- Dictionary Tab ------------------------ //
+
+#dictionary-tab {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 20%;
+
+  #unexpanded-dict-tab {
+    background-color: #ffe599;
+    width: 2.5em;
+    border: 2px solid $dark-avocado-green;
+    border-left: none;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+    #expand-dict-tab-btn {
+      outline: none;
+      border: none;
+      background-color: transparent;
+    }
+  }
 }
