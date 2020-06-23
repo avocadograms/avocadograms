@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 
 // Global error handler
 app.use((err, req, res, next) => {
+<<<<<<< HEAD
 	const defaultError = {
 		log: "Express error handler caught unknown middleware error",
 		status: 400,
@@ -24,6 +25,15 @@ app.use((err, req, res, next) => {
 	};
 	const errorObj = { ...defaultError, err };
 	res.status(errorObj.status).send(errorObj);
+=======
+  const defaultError = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 400,
+    message: { error: `An error occurred, ${err}` },
+  };
+  const errorObj = { ...defaultError, err };
+  res.status(errorObj.status).send(errorObj);
+>>>>>>> 91caed7bc41847caf41e1c03a84a88f46c96a81b
 });
 
 app.listen(PORT, () => {
