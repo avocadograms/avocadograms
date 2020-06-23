@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#loginContainer {
+  display: grid;
+  grid-template-columns: 4fr 3fr 4fr;
+  grid-template-rows: 20vh 50vh 30vh;
+}
+
+#login {
+  font-size: 18px;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  // display: flex;
+  // flex-direction: column;
+  background-color: #f2f2f2;
+  border: 1px solid #8c8c8c;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px #8c8c8c;
+}
+
+#submitLogin {
+  height: 3em;
+  width: 6em;
+  border-radius: 5px;
+  border: 1px solid #00cc00;
+  background-color: #1aff1a;
+  outline: none;
+}
+
+#submitLogin:hover {
+  cursor: pointer;
+  background-color: #00cc00;
+}
+
+input {
+  font-size: 14px;
+}
+
+#userLogin {
+  padding: 0.5em;
+}
+
+#passLogin {
+  padding: 0.5em;
+}
