@@ -72,14 +72,39 @@ input {
 
 #gameContainer {
   display: grid;
-  grid-template-columns: auto 600px auto;
+  grid-template-columns: auto 560px auto;
 }
 
 #board {
+  margin-top: 20px;
   grid-column: 2/3;
-  grid-row: 3 / auto;
-  height: 600px;
+  height: 560px;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 1px #8c8c8c;
+}
+
+#tilesContainer {
+  margin-top: 20px;
+  grid-column: 2/3;
+  height: 70px;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px #8c8c8c;
+}
+
+.tiles {
+  text-align: center;
+  font-size: 25px;
+  height: 35px;
+  width: 35px;
+  border-radius: 5px;
+  border: 1px solid yellowgreen;
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px #5a6d34;
+}
+
+.tiles:hover {
+  cursor: pointer;
 }
