@@ -1,7 +1,10 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
+
+// ----------------------- Login Container ------------------------ //
 
 #loginContainer {
   display: grid;
@@ -51,4 +54,32 @@ input {
 
 #passLogin {
   padding: 0.5em;
+}
+
+// ----------------------- Main Container ------------------------ //
+#navbar {
+  background-color: #00802b;
+  width: 100%;
+  height: 60px;
+}
+
+#navbar h1 {
+  font-size: 40px;
+  text-align: center;
+  padding-top: 0.2em;
+  color: rgb(187, 226, 109);
+}
+
+#gameContainer {
+  display: grid;
+  grid-template-columns: auto 600px auto;
+}
+
+#board {
+  grid-column: 2/3;
+  grid-row: 3 / auto;
+  height: 600px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px #8c8c8c;
 }
