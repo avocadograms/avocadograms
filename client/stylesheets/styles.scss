@@ -85,7 +85,7 @@ input {
 }
 
 #tilesContainer {
-  margin-top: 20px;
+  margin-top: 35px;
   grid-column: 2/3;
   height: 70px;
   display: flex;
@@ -96,9 +96,10 @@ input {
 
 .tiles {
   text-align: center;
+  margin: 0;
   font-size: 25px;
-  height: 35px;
-  width: 35px;
+  height: 33px;
+  width: 33px;
   border-radius: 5px;
   border: 1px solid yellowgreen;
   background-color: white;
