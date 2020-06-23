@@ -11,11 +11,11 @@ function LoginForm() {
       <form>
         <div id='userLogin'>
           <label htmlFor='username'> Username </label>
-          <input id='username' name='username' defaultValue='username' />
+          <input id='username' name='username' placeholder='username' />
         </div>
         <div id='passLogin'>
           <label htmlFor='password'> Password </label>
-          <input id='password' name='password' defaultValue='password' />
+          <input id='password' name='password' placeholder='password' />
         </div>
       </form>
       <button id='submitLogin' type='submit'>
