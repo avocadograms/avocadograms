@@ -114,6 +114,10 @@ input {
   cursor: pointer;
 }
 
+#checkWords {
+  grid-column: 2/3;
+}
+
 // ----------------------- Dictionary Tab ------------------------ //
 
 #dictionary-tab {
