@@ -39,7 +39,7 @@ function CheckWords() {
     return [tileTop, tileLeft];
   };
 
-  const wordsOnBoard = () => {
+  const tilesOnBoard = () => {
     const maxTop = boardPosition[0] + boardDimensions[0];
     const maxLeft = boardPosition[1] + boardDimensions[1];
     const tiles = document.querySelectorAll('.tiles');
@@ -52,7 +52,71 @@ function CheckWords() {
         tilePosition[1] < maxLeft - tile.offsetWidth
       );
     });
-    console.log(tilesArray);
+    const lettersAndPositions = tilesArray.map(tile => {
+      const tilePosition = getTilePosition(tile);
+      return {
+        letter: tile.innerText,
+        position: {
+          top: tilePosition[0],
+          left: tilePosition[1],
+        },
+      };
+    });
+    return lettersAndPositions;
+  };
+
+  const wordsOnBoard = () => {
+    const tiles = tilesOnBoard();
+
+    const tileTemplate = document.querySelector('.tiles');
+    const boardGrid = new Array(Math.floor(boardDimensions[1] / tileTemplate.offsetWidth));
+    for (let i = 0; i < boardGrid.length; i++) {
+      boardGrid[i] = new Array(Math.floor(boardDimensions[0] / tileTemplate.offsetHeight)).fill(
+        '-'
+      );
+    }
+
+    for (let tile of tiles) {
+      const gridY = Math.floor((tile.position.top - boardPosition[0]) / tileTemplate.offsetHeight);
+      const gridX = Math.floor((tile.position.left - boardPosition[1]) / tileTemplate.offsetWidth);
+      boardGrid[gridY][gridX] = tile.letter;
+    }
+
+    const numIslands = numIslands();
+    if (numIslands > 1) {
+      console.log('Please connect all of your tiles!');
+      return;
+    } else if (numIslands < 1) {
+      console.log('You need to add some tiles to the board!');
+      return;
+    } else {
+      console.log('checking words');
+    }
+    const playedWords = [];
+
+    // console.log(playedWords);
+  };
+
+  const numIslands = grid => {
+    let num = 0;
+    const removeLetter = (i, j) => {
+      if (i < 0 || i >= grid.length || j < 0 || j >= grid[i].length || grid[i][j] === '-') return;
+      grid[i][j] = '-';
+      removeLetter(i - 1, j);
+      removeLetter(i + 1, j);
+      removeLetter(i, j - 1);
+      removeLetter(i, j + 1);
+      return 1;
+    };
+
+    for (let i = 0; i < grid.length; i++) {
+      for (let j = 0; j < grid[i].length; j++) {
+        if (grid[i][j] !== '-') {
+          num += removeLetter(i, j);
+        }
+      }
+    }
+    return num;
   };
 
   return (
@@ -61,7 +125,7 @@ function CheckWords() {
         check your words
       </button>
       <div>
-        {`top postion of board: ${boardPosition[0]} and left position of board: ${boardPosition[1]}`}
+        {`top position of board: ${boardPosition[0]} and left position of board: ${boardPosition[1]}`}
       </div>
     </div>
   );
