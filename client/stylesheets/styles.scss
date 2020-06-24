@@ -215,6 +215,14 @@ input {
 				justify-content: space-evenly;
 				align-items: center;
 
+				#word-exists-div {
+					color: $dark-avocado-green;
+				}
+
+				#no-such-word-div {
+					color: red;
+				}
+
 				.search-again-btn {
 					width: 40%;
 				}
