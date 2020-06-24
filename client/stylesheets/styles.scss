@@ -1,94 +1,95 @@
 @import 'variables';
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+	margin: 0;
+	padding: 0;
+	height: 100%;
 }
 
 // ----------------------- Login Container ------------------------ //
 
 #loginContainer {
-  display: grid;
-  grid-template-columns: 4fr 3fr 4fr;
-  grid-template-rows: 20vh 50vh 30vh;
-  background-image: url('../../client/assets/avocado-background.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
+	display: grid;
+	grid-template-columns: 4fr 3fr 4fr;
+	grid-template-rows: 20vh 50vh 30vh;
+	background-image: url('../../client/assets/avocado-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
 }
 
 #login {
-  // font-size: 18px;
-  grid-column: 2/3;
-  grid-row: 2/3;
-  // display: flex;
-  // flex-direction: column;
-  background-color: white;
-  border: 1px solid #8c8c8c;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px 1px #8c8c8c;
+	// font-size: 18px;
+	grid-column: 2/3;
+	grid-row: 2/3;
+	// display: flex;
+	// flex-direction: column;
+	background-color: white;
+	border: 1px solid #8c8c8c;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px 1px #8c8c8c;
 }
 
 #submitLogin {
-  height: 3em;
-  width: 6em;
-  border-radius: 5px;
-  border: 1px solid #00cc00;
-  background-color: #1aff1a;
-  outline: none;
+	height: 3em;
+	width: 6em;
+	border-radius: 5px;
+	border: 1px solid #00cc00;
+	background-color: #1aff1a;
+	outline: none;
 }
 
 #submitLogin:hover {
-  cursor: pointer;
-  background-color: #00cc00;
+	cursor: pointer;
+	background-color: #00cc00;
 }
 
 input {
-  // font-size: 14px;
+	// font-size: 14px;
 }
 
 #userLogin {
-  padding: 0.5em;
+	padding: 0.5em;
 }
 
 #passLogin {
-  padding: 0.5em;
+	padding: 0.5em;
 }
 
 // ----------------------- Game Container ------------------------ //
 #navbar {
-  background-color: $dark-avocado-green;
-  width: 100%;
-  height: 60px;
-  box-shadow: 1px 1px 1px 1px #8c8c8c;
+	background-color: $dark-avocado-green;
+	width: 100%;
+	height: 60px;
+	box-shadow: 1px 1px 1px 1px #8c8c8c;
 }
 
 #navbar h1 {
-  font-size: 40px;
-  text-align: center;
-  padding-top: 0.2em;
-  color: yellowgreen;
-  text-shadow: 2px 2px black;
+	font-size: 40px;
+	text-align: center;
+	padding-top: 0.2em;
+	color: yellowgreen;
+	text-shadow: 2px 2px black;
 }
 
 #gameContainer {
-  display: grid;
-  grid-template-columns: auto 564px auto;
+	display: grid;
+	grid-template-columns: auto 564px auto;
 }
 
 #board {
-  margin-top: 20px;
-  grid-column: 2/3;
-  height: 560px;
-  border: 2px solid $dark-avocado-green;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px 1px #8c8c8c;
+	margin-top: 20px;
+	grid-column: 2/3;
+	height: 560px;
+	border: 2px solid $dark-avocado-green;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px 1px #8c8c8c;
 }
 
 #tilesContainer {
+<<<<<<< HEAD
   margin-top: 31px;
   grid-column: 2/3;
   height: 70px;
@@ -97,153 +98,173 @@ input {
   border: 2px solid $dark-avocado-green;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 1px #8c8c8c;
+=======
+	margin-top: 31px;
+	grid-column: 2/3;
+	height: 70px;
+	display: flex;
+	border: 2px solid $dark-avocado-green;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px 1px #8c8c8c;
+>>>>>>> 3e70de0de33cea25e696127c878322daf25e4a78
 }
 
 .tiles {
-  text-align: center;
-  margin: 0;
-  font-size: 25px;
-  height: 33px;
-  width: 33px;
-  border-radius: 5px;
-  border: 1px solid yellowgreen;
-  background-color: white;
-  box-shadow: 1px 1px 1px 1px $dark-avocado-green;
+	text-align: center;
+	margin: 0;
+	font-size: 25px;
+	height: 33px;
+	width: 33px;
+	border-radius: 5px;
+	border: 1px solid yellowgreen;
+	background-color: white;
+	box-shadow: 1px 1px 1px 1px $dark-avocado-green;
 }
 
 .tiles:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 #checkWords {
-  grid-column: 2/3;
+	grid-column: 2/3;
 }
 
 // ----------------------- Dictionary Tab ------------------------ //
 
 #dictionary-tab {
-  margin-right: 0;
-  padding: 0;
-  position: fixed;
-  top: 15%;
-  right: 0;
+	margin-right: 0;
+	padding: 0;
+	position: fixed;
+	top: 15%;
+	right: 0;
 
-  .book-icon {
-    color: darken($color: $dark-avocado-green, $amount: 15%);
-  }
+	.book-icon {
+		color: darken($color: $dark-avocado-green, $amount: 15%);
+	}
 
-  #unexpanded-dict-tab {
-    background-color: #ffe599;
-    width: 2.5em;
-    border: 2px solid $dark-avocado-green;
-    border-right: none;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
-    padding: 0.5em;
+	#unexpanded-dict-tab {
+		background-color: #ffe599;
+		width: 2.5em;
+		border: 2px solid $dark-avocado-green;
+		border-right: none;
+		border-top-left-radius: 1em;
+		border-bottom-left-radius: 1em;
+		padding: 0.5em;
 
-    #expand-dict-tab-btn {
-      outline: none;
-      border: none;
-      background-color: transparent;
-    }
-  }
+		#expand-dict-tab-btn {
+			outline: none;
+			border: none;
+			background-color: transparent;
+		}
+	}
 
-  #expanded-dict-tab {
-    background-color: lighten($color: #ffe599, $amount: 12%);
-    width: 18em;
-    height: 30em;
-    border: 2px solid $dark-avocado-green;
-    border-right: none;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
+	#expanded-dict-tab {
+		background-color: lighten($color: #ffe599, $amount: 12%);
+		width: 18em;
+		height: 30em;
+		border: 2px solid $dark-avocado-green;
+		border-right: none;
+		border-top-left-radius: 1em;
+		border-bottom-left-radius: 1em;
 
-    .open-book {
-      padding-top: 0.8em;
-    }
+		.open-book {
+			padding-top: 0.8em;
+		}
 
-    #collapse-dict-tab-btn {
-      border: none;
-      background-color: transparent;
-      float: right;
+		#collapse-dict-tab-btn {
+			border: none;
+			background-color: transparent;
+			float: right;
 
-      &:focus {
-        border: none;
-        outline: none;
-      }
-    }
+			&:focus {
+				border: none;
+				outline: none;
+			}
+		}
 
-    #word-search-div {
-      height: 7em;
-      padding: 0.5em;
-      padding-bottom: 1em;
-      border-bottom: 1px solid black;
+		#word-search-div {
+			height: 7em;
+			padding: 0.5em;
+			padding-bottom: 1em;
+			border-bottom: 1px solid black;
 
-      h3 {
-        font-size: 1.5em;
-        text-align: center;
-      }
+			h3 {
+				font-size: 1.5em;
+				text-align: center;
+			}
 
-      .search-btns {
-        background-color: $light-avocado-green;
-        color: $dark-avocado-green;
-        font-size: 0.7em;
-        font-weight: 800;
-        border-radius: 0.6em;
-        border: 1px solid $dark-avocado-green;
-      }
+			.search-btns {
+				background-color: $light-avocado-green;
+				color: $dark-avocado-green;
+				font-size: 0.7em;
+				font-weight: 800;
+				border-radius: 0.6em;
+				border: 1px solid $dark-avocado-green;
+			}
 
-      #search-input-div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-evenly;
-        padding-left: 1em;
+			#search-input-div {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-evenly;
+				padding-left: 1em;
 
-        #word-search-input {
-          border-radius: 0.5em;
-          border: 0.5px solid $dark-avocado-green;
-          height: 2em;
+				#word-search-input {
+					border-radius: 0.5em;
+					border: 0.5px solid $dark-avocado-green;
+					height: 2em;
 
-          &:focus {
-            border: none;
-            outline: none;
-          }
-        }
+					&:focus {
+						border: none;
+						outline: none;
+					}
+				}
 
-        .first-search-btn {
-          height: 2em;
-        }
-      }
+				.first-search-btn {
+					height: 2em;
+				}
+			}
 
-      #word-search-results-div {
-        margin-top: 3em;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
+			#word-search-results-div {
+				margin-top: 2em;
+				height: 4em;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
 
-        .search-again-btn {
-          width: 40%;
-        }
-      }
-    }
+				.word-exists-p {
+					color: $dark-avocado-green;
+				}
 
-    #all-words-div {
-      padding-left: 1em;
-      // background-color: cadetblue;
-      height: 70%;
-      overflow-y: scroll;
+				.no-such-word-p {
+					// font-size: 1.2em;
+				}
 
-      h3 {
-        font-size: 1.5em;
-        color: $dark-avocado-green;
-      }
+				.search-again-btn {
+					width: 40%;
+					height: 2em;
+					font-size: 0.8em;
+				}
+			}
+		}
 
-      .word-def-div {
-        .definition-p {
-          margin-top: -8%;
-        }
-      }
-    }
-  }
+		#all-words-div {
+			padding-left: 1em;
+			// background-color: cadetblue;
+			height: 70%;
+			overflow-y: scroll;
+
+			h3 {
+				font-size: 1.5em;
+				color: $dark-avocado-green;
+			}
+
+			.word-def-div {
+				.definition-p {
+					margin-top: -8%;
+				}
+			}
+		}
+	}
 }

@@ -33,11 +33,11 @@ const Dictionary = (props) => {
 					<div id="all-words-div">
 						<h3>Words on the board</h3>
 						<WordDef word="dog" />
+						<WordDef word="cat" />
 						<WordDef word="dog" />
+						<WordDef word="cat" />
 						<WordDef word="dog" />
-						<WordDef word="dog" />
-						<WordDef word="dog" />
-						<WordDef word="dog" />
+						<WordDef word="cat" />
 					</div>
 				</div>
 			)}
