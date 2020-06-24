@@ -5,9 +5,43 @@ import WordDef from './WordDef.jsx';
 
 const Dictionary = (props) => {
 	const [tabIsExpanded, setTabIsExpanded] = useState(false);
+	const [wordDefComponents, setWordDefComponents] = useState([]);
 
 	const bookIcon = <FaBook className="book-icon" size={26} />;
 	const openBookIcon = <FaBookOpen className="book-icon open-book" size={24} />;
+
+	useEffect(() => {
+		console.log(wordDefComponents.length);
+		setWordDefComponents([]);
+
+		props.wordsArray.forEach((word) => {
+			fetch(`http://localhost:8080/findWord`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					word: word.toLowerCase(),
+				}),
+			})
+				.then((res) => res.json())
+				.then((data) => {
+					console.log('data per word: ', data);
+					console.log('data.word: ', data.word);
+					if (data.word) {
+						setWordDefComponents([
+							...wordDefComponents,
+							<WordDef word={data.word} def={data.definitions[0].definition} />,
+						]);
+						// wordDefComponents.push(
+						// 	<WordDef word={data.word} def={data.definitions[0]} />
+						// );
+						console.log('worddefcomps: ', wordDefComponents);
+					}
+				})
+				.catch((err) => console.log(err));
+		});
+	}, [props.wordsArray]);
 
 	const openOrCloseDict = () => {
 		if (tabIsExpanded) setTabIsExpanded(false);
@@ -32,12 +66,7 @@ const Dictionary = (props) => {
 
 					<div id="all-words-div">
 						<h3>Words on the board</h3>
-						<WordDef word="dog" />
-						<WordDef word="cat" />
-						<WordDef word="dog" />
-						<WordDef word="cat" />
-						<WordDef word="dog" />
-						<WordDef word="cat" />
+						{wordDefComponents}
 					</div>
 				</div>
 			)}
