@@ -9,9 +9,11 @@ const SearchWord = (props) => {
 	const definitionReturnedRef = useRef(definitionReturned);
 
 	useEffect(() => {
-		console.log('in useEffect: ', definitionReturned);
-		if (definitionReturned.success === false) setWordExists(false);
-	}, [definitionReturned]);
+		console.log('in useEffect: ', definitionReturnedRef.current.success);
+		if (definitionReturnedRef.current.success === false) setWordExists(false);
+		else if (definitionReturnedRef.current.success === undefined)
+			setWordExists(true);
+	}, [hasResults]);
 
 	const handleKeyPress = (event) => {
 		if (event.key === 'Enter') {
@@ -70,10 +72,12 @@ const SearchWord = (props) => {
 					{wordExists ? (
 						<div className="word-exists-div">
 							{/* {definitionReturnedRef.current.definitions[0]} */}
-							Success! It is a word!
+							<p className="word-exists-p">This word exists!</p>
 						</div>
 					) : (
-						<div className="no-such-word-div">Word not found!</div>
+						<div className="no-such-word-div">
+							<p className="no-such-word-p">Word not found..</p>
+						</div>
 					)}
 
 					<button
