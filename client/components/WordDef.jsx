@@ -4,7 +4,7 @@ const WordDef = (props) => {
 	return (
 		<div className="word-def-div">
 			<h2>{props.word}</h2>
-			<p>a short definition of the word</p>
+			<p className="definition-p">a wonderful friend</p>
 		</div>
 	);
 };
