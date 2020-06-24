@@ -17,6 +17,12 @@ function LoginForm() {
   return (
     <div id='login'>
       <h1> AvocadoGrams! </h1>
+      <div id="login-container">
+        <a id="login-link" href="localhost:8080/oauth">
+          <GithubIcon />
+          <span class="github">Login with Github</span>
+        </a>
+      </div>
       <h3> Login </h3>
       <form>
         <div id='userLogin'>
@@ -45,12 +51,6 @@ function LoginForm() {
       <button id='submitSignUp' type='submit'>
         Submit
       </button>
-      <div>
-        <a id="login-link" href="localhost:8080/oauth">
-          <GithubIcon />
-          <span>Login with Github</span>
-        </a>
-      </div>
     </div>
   );
 }

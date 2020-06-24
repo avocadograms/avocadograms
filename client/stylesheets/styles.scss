@@ -58,6 +58,29 @@ input {
   padding: 0.5em;
 }
 
+#login-container {
+  background-color: #000;
+  width: 70%;
+  border-radius: 3px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+    #login-link {
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+      cursor: default;
+      display: flex;
+      align-items: center;          
+      height: 40px;
+
+        .github {
+        margin-left: 5px;
+      }
+    }
+}
 // ----------------------- Game Container ------------------------ //
 #navbar {
   background-color: $dark-avocado-green;

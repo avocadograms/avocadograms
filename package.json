@@ -19,6 +19,7 @@
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "html-webpack-plugin": "^4.3.0",
+    "jsonwebtoken": "^8.5.1",
     "mdi-react": "^7.3.0",
     "node-fetch": "^2.6.0",
     "path": "^0.12.7",
@@ -28,6 +29,7 @@
     "react-draggable": "^4.4.3",
     "react-icons": "^3.10.0",
     "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "sass": "^1.26.8",
     "sass-loader": "^8.0.2"
   },

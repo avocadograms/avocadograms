@@ -4,6 +4,7 @@ const userController = require('../controllers/userController');
 const { CLIENT_ID} = require('../../secrets-oauth');
 const oauthController = require('../controllers/oauthController');
 const wordController = require('../controllers/wordsController');
+const sessionController = require('../controllers/sessionController');
 
 router.get('/getUser', userController.getUser, (req, res) => {
 	res.status(200).json(res.locals.user);
@@ -17,7 +18,7 @@ router.put('/updatedUser', userController.updateScore, (req, res) => {
 	res.status(200).json(res.locals.updated);
 });
 
-router.get('/oauth-github', oauthController.authorize, oauthController.getUserAPI, userController.createOauthUser, (req, res) => {
+router.get('/oauth-github', oauthController.authorize, oauthController.getUserAPI, userController.createOauthUser,sessionController.createSession, (req, res) => {
     res.redirect('/')
 })
 
@@ -28,5 +29,9 @@ router.get('/oauth', (req, res) =>
 router.post('/findWord', wordController.findDefinition, (req, res) => {
 	res.status(200).json(res.locals.definition);
 });
+
+router.get('/verify', sessionController.verify, (req, res) => {
+	res.status(200).send();
+})
 
 module.exports = router;
