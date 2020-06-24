@@ -25,11 +25,14 @@ oauthController.authorize = (req, res, next) => {
 
 oauthController.getUserAPI = (req, res, next) => {
     console.log('inside getuserAPI');
+    // console.log('res.locals: ', res.locals)
     const tokenHeader = { headers: { 'Authorization': `token ${token}` } };
     axios.get('https://api.github.com/user', tokenHeader)
-        .then(res => {
-          console.log('res.data is: ', res.data);
-            res.data;
+        .then(result => {
+          // console.log('res.data is: ', res.data);
+            console.log('in getUserAPI res.data.login: ', result.data.login)
+            res.locals.login = result.data.login;
+            console.log('res.locals.login: ', res.locals.login);
             return next();
         })
         .catch(err => res.json({ message: err.message }))

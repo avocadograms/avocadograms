@@ -52,6 +52,29 @@ userController.updateScore = (req, res, next) => {
     })
 }
 
+
+userController.createOauthUser = (req, res, next) => {
+  // console.log('creating a user');
+  console.log('res.locals in createOauthUser', res.locals)
+  const { login } = res.locals;
+  console.log('login is: ', login)
+  const query = {
+    text: `
+    INSERT INTO users ( name )
+    VALUES ($1)
+    `,
+    values: [login]
+  }
+
+  db.query(query, (err, newUser) => {
+    if (err) {
+      // console.log(`something's broken in userController.createUser`);
+      return next(err);
+    }
+    res.locals.newUser = newUser;
+    return next();
+  })
+}
 module.exports = userController;
 
 
@@ -61,7 +84,7 @@ module.exports = userController;
 
 CREATE TABLE USERS (
   user_id 	SERIAL PRIMARY KEY,
-  name 	VARCHAR(50),
+  name 	VARCHAR(50) unique,
   email 	VARCHAR(50) unique,
   password 	VARCHAR(50),
   current_session 	VARCHAR(50),

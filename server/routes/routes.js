@@ -17,7 +17,7 @@ router.put('/updatedUser', userController.updateScore, (req, res) => {
     res.status(200).json(res.locals.updated)
 })
 
-router.get('/oauth-github', oauthController.authorize, oauthController.getUserAPI, (req, res) => {
+router.get('/oauth-github', oauthController.authorize, oauthController.getUserAPI, userController.createOauthUser, (req, res) => {
     res.redirect('/')
 })
 
