@@ -84,7 +84,7 @@ module.exports = userController;
 
 CREATE TABLE USERS (
   user_id 	SERIAL PRIMARY KEY,
-  name 	VARCHAR(50) unique,
+  name 	VARCHAR(50) uniq
   email 	VARCHAR(50) unique,
   password 	VARCHAR(50),
   current_session 	VARCHAR(50),

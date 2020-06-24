@@ -6,6 +6,7 @@ function GameContainer() {
   return (
     <div id='gameContainer'>
       <Board />
+      <TilesContainer />
     </div>
   );
 }
