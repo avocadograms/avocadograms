@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const { CLIENT_ID, CLIENT_SECRET } = require('../../secrets-oauth');
+const { CLIENT_ID} = require('../../secrets-oauth');
 const oauthController = require('../controllers/oauthController');
 const wordController = require('../controllers/wordsController');
 
