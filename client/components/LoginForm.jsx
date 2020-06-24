@@ -1,4 +1,5 @@
 import React from 'react';
+import GithubIcon from "mdi-react/GithubIcon";
 
 function LoginForm() {
   const handleLogin = () => {
@@ -44,6 +45,12 @@ function LoginForm() {
       <button id='submitSignUp' type='submit'>
         Submit
       </button>
+      <div>
+        <a id="login-link" href="localhost:8080/oauth">
+          <GithubIcon />
+          <span>Login with Github</span>
+        </a>
+      </div>
     </div>
   );
 }
