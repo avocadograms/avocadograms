@@ -93,6 +93,7 @@ input {
   grid-column: 2/3;
   height: 70px;
   display: flex;
+  flex-wrap: wrap;
   border: 2px solid $dark-avocado-green;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 1px #8c8c8c;
