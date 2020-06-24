@@ -82,19 +82,47 @@ function CheckWords() {
       boardGrid[gridY][gridX] = tile.letter;
     }
 
-    const numIslands = numIslands();
-    if (numIslands > 1) {
+    const islands = numIslands(JSON.parse(JSON.stringify(boardGrid)));
+    if (islands > 1) {
       console.log('Please connect all of your tiles!');
       return;
-    } else if (numIslands < 1) {
+    } else if (islands < 1) {
       console.log('You need to add some tiles to the board!');
       return;
     } else {
       console.log('checking words');
+      return playedWords(boardGrid);
     }
-    const playedWords = [];
+  };
 
-    // console.log(playedWords);
+  const playedWords = grid => {
+    const words = [];
+    for (let i = 0; i < grid.length; i++) {
+      let wordHor = '';
+      let wordVert = '';
+      for (let j = 0; j < grid[i].length; j++) {
+        if (grid[i][j] !== '-') {
+          wordHor += grid[i][j];
+        }
+        if (grid[j][i] !== '-') {
+          wordVert += grid[j][i];
+        }
+        if (grid[i][j] === '-' || j === grid[i].length - 1) {
+          if (wordHor.length > 1) {
+            words.push(wordHor);
+          }
+          wordHor = '';
+        }
+        if (grid[j][i] === '-' || i === grid.length - 1) {
+          if (wordVert.length > 1) {
+            words.push(wordVert);
+          }
+          wordVert = '';
+        }
+      }
+    }
+    console.log(words);
+    return words;
   };
 
   const numIslands = grid => {
