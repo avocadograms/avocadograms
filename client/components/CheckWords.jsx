@@ -26,25 +26,30 @@ function CheckWords() {
     setBoardDimensions([dimensions.height, dimensions.width]);
   }, []);
 
+  const getTilePosition = tile => {
+    const tileTransform = tile.style.transform;
+    const tileTransformTop = Number(
+      tileTransform.slice(tileTransform.indexOf(' ') + 1, tileTransform.length - 3)
+    );
+    const tileTransformLeft = Number(
+      tileTransform.slice(tileTransform.indexOf('(') + 1, tileTransform.indexOf('p'))
+    );
+    const tileTop = tile.offsetTop + tileTransformTop;
+    const tileLeft = tile.offsetLeft + tileTransformLeft;
+    return [tileTop, tileLeft];
+  };
+
   const wordsOnBoard = () => {
     const maxTop = boardPosition[0] + boardDimensions[0];
     const maxLeft = boardPosition[1] + boardDimensions[1];
     const tiles = document.querySelectorAll('.tiles');
     const tilesArray = Array.apply(null, tiles).filter(tile => {
-      const tileTransform = tile.style.transform;
-      const tileTransformTop = Number(
-        tileTransform.slice(tileTransform.indexOf(' ') + 1, tileTransform.length - 3)
-      );
-      const tileTransformLeft = Number(
-        tileTransform.slice(tileTransform.indexOf('(') + 1, tileTransform.indexOf('p'))
-      );
-      const tileTop = tile.offsetTop + tileTransformTop;
-      const tileLeft = tile.offsetLeft + tileTransformLeft;
+      const tilePosition = getTilePosition(tile);
       return (
-        tileTop > boardPosition[0] &&
-        tileTop < maxTop - tile.offsetHeight &&
-        tileLeft > boardPosition[1] &&
-        tileLeft < maxLeft - tile.offsetWidth
+        tilePosition[0] > boardPosition[0] &&
+        tilePosition[0] < maxTop - tile.offsetHeight &&
+        tilePosition[1] > boardPosition[1] &&
+        tilePosition[1] < maxLeft - tile.offsetWidth
       );
     });
     console.log(tilesArray);
