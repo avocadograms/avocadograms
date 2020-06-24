@@ -4,15 +4,18 @@ import letterList, { letterFrequencies } from '../constants/letterPool';
 
 function TilesContainer() {
   const [letters, setLetters] = useState([]);
+  const [letterPool, setLetterPool] = useState(letterFrequencies);
 
   useEffect(() => {
-    const cache = { ...letterFrequencies };
     let randomLetters = [];
     while (randomLetters.length < 20) {
       let randomNum = Math.floor(Math.random() * (letterList.length - 1));
-      if (cache[letterList[randomNum]] !== 0) {
-        randomLetters.push(letterList[randomNum]);
-        cache[letterList[randomNum]] -= 1;
+      const letter = letterList[randomNum];
+      if (letterPool[letter] !== 0) {
+        randomLetters.push(letter);
+        const obj = {};
+        obj[letter] = letterPool[letter] - 1;
+        setLetterPool({ ...letterPool, ...obj });
       }
     }
     setLetters(randomLetters);
