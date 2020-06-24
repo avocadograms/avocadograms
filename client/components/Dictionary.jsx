@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { GrBook } from 'react-icons/gr';
-// import WordDef from './WordDef';
+import { FaBookOpen, FaBook } from 'react-icons/fa';
+import SearchWord from './SearchWord.jsx';
+import WordDef from './WordDef.jsx';
 
 const Dictionary = (props) => {
 	const [tabIsExpanded, setTabIsExpanded] = useState(false);
 
-	const bookIcon = <GrBook size={24} />;
+	const bookIcon = <FaBook className="book-icon" size={26} />;
+	const openBookIcon = <FaBookOpen className="book-icon open-book" size={24} />;
 
 	const openOrCloseDict = () => {
 		if (tabIsExpanded) setTabIsExpanded(false);
@@ -21,8 +23,22 @@ const Dictionary = (props) => {
 					</button>
 				</div>
 			) : (
-				<div>
-					<button onClick={openOrCloseDict}>I'm open now!</button>
+				<div id="expanded-dict-tab">
+					<button id="collapse-dict-tab-btn" onClick={openOrCloseDict}>
+						{openBookIcon}
+					</button>
+
+					<SearchWord />
+
+					<div id="all-words-div">
+						<h3>Words on the board</h3>
+						<WordDef word="dog" />
+						<WordDef word="dog" />
+						<WordDef word="dog" />
+						<WordDef word="dog" />
+						<WordDef word="dog" />
+						<WordDef word="dog" />
+					</div>
 				</div>
 			)}
 		</div>
