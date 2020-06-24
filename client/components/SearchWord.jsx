@@ -9,8 +9,9 @@ const SearchWord = (props) => {
 	const definitionReturnedRef = useRef(definitionReturned);
 
 	useEffect(() => {
+		console.log('in useEffect: ', definitionReturned);
 		if (definitionReturned.success === false) setWordExists(false);
-	}, [wordExists, definitionReturned]);
+	}, [definitionReturned]);
 
 	const handleKeyPress = (event) => {
 		if (event.key === 'Enter') {
