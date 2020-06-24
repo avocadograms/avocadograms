@@ -16,7 +16,6 @@ router.put('/updatedUser', userController.updateScore, (req, res) => {
 });
 
 router.post('/findWord', wordController.findDefinition, (req, res) => {
-	// console.log('res.locals.definition', res.locals.definition);
 	res.status(200).json(res.locals.definition);
 });
 
