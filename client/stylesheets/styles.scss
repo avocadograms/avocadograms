@@ -4,6 +4,7 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	background-color: lighten($color: $light-avocado-green, $amount: 32%);
 }
 
 // ----------------------- Login Container ------------------------ //
@@ -29,25 +30,25 @@ body {
 	background-color: white;
 	border: 1px solid #8c8c8c;
 	border-radius: 5px;
-  box-shadow: 2px 2px 5px 1px #8c8c8c;
-  padding: 4em;
-  // min-height: 450px;
-  // max-height: 450px;
-  // min-width: 300px;
-  min-height: 150px;
-  max-height: 150px;
-  width: auto;
-  text-align: center;
+	box-shadow: 2px 2px 5px 1px #8c8c8c;
+	padding: 4em;
+	// min-height: 450px;
+	// max-height: 450px;
+	// min-width: 300px;
+	min-height: 150px;
+	max-height: 150px;
+	width: auto;
+	text-align: center;
 }
 
 #submitLogin {
 	height: 2.5em;
-  width: 6em;
+	width: 6em;
 	border-radius: 5px;
 	border: 1px solid #00cc00;
 	background-color: #1aff1a;
-  outline: none;
-  margin-top: 1em;
+	outline: none;
+	margin-top: 1em;
 }
 
 #submitLogin:hover {
@@ -56,45 +57,46 @@ body {
 }
 
 input {
-  // font-size: 14px;
+	// font-size: 14px;
 }
 
-#usernameInfo, #passwordInfo {
-  // padding: 0.5em;
-  float: left;
-  width: 25%;
-  margin-top: 6px;
+#usernameInfo,
+#passwordInfo {
+	// padding: 0.5em;
+	float: left;
+	width: 25%;
+	margin-top: 6px;
 }
 
 #userInput {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
+	float: left;
+	width: 75%;
+	margin-top: 6px;
 }
 
 #login-container {
-  background-color: #000;
-  width: 100%;
-  border-radius: 3px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0px;
+	background-color: #000;
+	width: 100%;
+	border-radius: 3px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 0px;
 
-    #login-link {
-      text-decoration: none;
-      color: #fff;
-      text-transform: uppercase;
-      cursor: default;
-      display: flex;
-      align-items: center;          
-      height: 40px;
+	#login-link {
+		text-decoration: none;
+		color: #fff;
+		text-transform: uppercase;
+		cursor: default;
+		display: flex;
+		align-items: center;
+		height: 40px;
 
-        .github {
-        margin-left: 5px;
-      }
-    }
+		.github {
+			margin-left: 5px;
+		}
+	}
 }
 // ----------------------- Game Container ------------------------ //
 #navbar {
@@ -105,39 +107,41 @@ input {
 }
 
 #navbar h1 {
-  font-size: 40px;
-  text-align: center;
-  padding-top: 0.2em;
-  color: yellowgreen;
-  text-shadow: 2px 2px darken($color: #ffe599, $amount: 45%);
+	font-size: 40px;
+	text-align: center;
+	padding-top: 0.2em;
+	color: yellowgreen;
+	text-shadow: 2px 2px darken($color: #ffe599, $amount: 45%);
 }
 
 #gameContainer {
-  display: grid;
-  grid-template-columns: 1fr 564px 1fr;
+	display: grid;
+	grid-template-columns: 1fr 564px 1fr;
 }
 
 #board {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  margin-top: 20px;
-  grid-column: 2/3;
-  height: 560px;
-  border: 2px solid $dark-avocado-green;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px 1px #8c8c8c;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	margin-top: 20px;
+	grid-column: 2/3;
+	height: 560px;
+	background-color: lighten($color: #ffe599, $amount: 12%);
+	border: 2px solid $dark-avocado-green;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px 1px #8c8c8c;
 }
 
 #tilesContainer {
-  margin-top: 31px;
-  grid-column: 2/3;
-  height: 70px;
-  display: flex;
-  flex-wrap: wrap;
-  border: 2px solid $dark-avocado-green;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px 1px #8c8c8c;
+	margin-top: 31px;
+	grid-column: 2/3;
+	height: 70px;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: lighten($color: #ffe599, $amount: 12%);
+	border: 2px solid $dark-avocado-green;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px 1px #8c8c8c;
 }
 
 .tiles {
@@ -159,261 +163,294 @@ input {
 // ----------------------- Dictionary Tab ------------------------ //
 
 #dictionary-tab {
-  margin-right: 0;
-  padding: 0;
-  position: fixed;
-  top: 15%;
-  right: 0;
+	margin-right: 0;
+	padding: 0;
+	position: fixed;
+	top: 15%;
+	right: 0;
 
-  .book-icon {
-    color: darken($color: $dark-avocado-green, $amount: 15%);
+	.book-icon {
+		color: darken($color: $dark-avocado-green, $amount: 15%);
 
-    &:hover {
-      cursor: pointer;
-    }
-  }
+		&:hover {
+			cursor: pointer;
+		}
+	}
 
-  #unexpanded-dict-tab {
-    background-color: #ffe599;
-    width: 2.5em;
-    border: 2px solid $dark-avocado-green;
-    border-right: none;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
-    padding: 0.5em;
+	#unexpanded-dict-tab {
+		background-color: #ffe599;
+		width: 2.5em;
+		border: 2px solid $dark-avocado-green;
+		border-right: none;
+		border-top-left-radius: 1em;
+		border-bottom-left-radius: 1em;
+		padding: 0.5em;
 
-    #expand-dict-tab-btn {
-      outline: none;
-      border: none;
-      background-color: transparent;
-    }
-  }
+		#expand-dict-tab-btn {
+			outline: none;
+			border: none;
+			background-color: transparent;
+		}
+	}
 
-  #expanded-dict-tab {
-    background-color: lighten($color: #ffe599, $amount: 12%);
-    width: 18em;
-    height: 30em;
-    border: 2px solid $dark-avocado-green;
-    border-right: none;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
+	#expanded-dict-tab {
+		background-color: lighten($color: #ffe599, $amount: 12%);
+		width: 18em;
+		height: 30em;
+		border: 2px solid $dark-avocado-green;
+		border-right: none;
+		border-top-left-radius: 1em;
+		border-bottom-left-radius: 1em;
 
-    .open-book {
-      padding-top: 0.8em;
-    }
+		.open-book {
+			padding-top: 0.8em;
+		}
 
-    #collapse-dict-tab-btn {
-      border: none;
-      background-color: transparent;
-      float: right;
+		#collapse-dict-tab-btn {
+			border: none;
+			background-color: transparent;
+			float: right;
 
-      &:focus {
-        border: none;
-        outline: none;
-      }
-    }
+			&:focus {
+				border: none;
+				outline: none;
+			}
+		}
 
-    #word-search-div {
-      height: 7em;
-      padding: 0.5em;
-      padding-bottom: 1em;
-      border-bottom: 1px solid black;
+		#word-search-div {
+			height: 7em;
+			padding: 0.5em;
+			padding-bottom: 1em;
+			border-bottom: 1px solid black;
 
-      h3 {
-        font-size: 1.5em;
-        text-align: center;
-      }
+			h3 {
+				font-size: 1.5em;
+				text-align: center;
+			}
 
-      .search-btns {
-        background-color: $light-avocado-green;
-        color: $dark-avocado-green;
-        font-size: 0.7em;
-        font-weight: 800;
-        border-radius: 0.6em;
-        border: 1px solid $dark-avocado-green;
+			.search-btns {
+				background-color: $light-avocado-green;
+				color: $dark-avocado-green;
+				font-size: 0.7em;
+				font-weight: 800;
+				border-radius: 0.6em;
+				border: 1px solid $dark-avocado-green;
 
-        &:hover {
-          cursor: pointer;
-        }
-      }
+				&:hover {
+					cursor: pointer;
+				}
+			}
 
-      #search-input-div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-evenly;
-        padding-left: 1em;
+			#search-input-div {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-evenly;
+				padding-left: 1em;
 
-        #word-search-input {
-          border-radius: 0.5em;
-          border: 0.5px solid $dark-avocado-green;
-          height: 2em;
+				#word-search-input {
+					border-radius: 0.5em;
+					border: 0.5px solid $dark-avocado-green;
+					height: 2em;
 
-          &:focus {
-            border: none;
-            outline: none;
-          }
-        }
+					&:focus {
+						border: none;
+						outline: none;
+					}
+				}
 
-        .first-search-btn {
-          height: 2em;
-        }
-      }
+				.first-search-btn {
+					height: 2em;
+				}
+			}
 
-      #word-search-results-div {
-        margin-top: 2em;
-        height: 4em;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+			#word-search-results-div {
+				margin-top: 2em;
+				height: 4em;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
 
-        .word-exists-p {
-          color: $dark-avocado-green;
-        }
+				.word-exists-p {
+					color: $dark-avocado-green;
+				}
 
-        .no-such-word-p {
-          // font-size: 1.2em;
-        }
+				.no-such-word-p {
+					// font-size: 1.2em;
+				}
 
-        .search-again-btn {
-          width: 40%;
-          height: 2em;
-          font-size: 0.8em;
-        }
-      }
-    }
+				.search-again-btn {
+					width: 40%;
+					height: 2em;
+					font-size: 0.8em;
+				}
+			}
+		}
 
-    #all-words-div {
-      padding-left: 1em;
-      // background-color: cadetblue;
-      height: 70%;
-      overflow-y: scroll;
+		#all-words-div {
+			padding-left: 1em;
+			// background-color: cadetblue;
+			height: 70%;
+			overflow-y: scroll;
 
-      h3 {
-        font-size: 1.5em;
-        color: $dark-avocado-green;
-      }
+			h3 {
+				font-size: 1.5em;
+				color: $dark-avocado-green;
+			}
 
-      .word-def-div {
-        .definition-p {
-          margin-top: -8%;
-        }
-      }
-    }
-  }
+			.word-def-div {
+				.definition-p {
+					margin-top: -8%;
+				}
+			}
+		}
+	}
 }
 
 // ------------------------ Tile Tracker ------------------------------ //
 #tilesTracker {
-  margin-top: 0.5em;
-  background-color: lighten($color: #ffe599, $amount: 12%);
-  height: 6em;
-  width: 20em;
-  border: 2px solid $dark-avocado-green;
-  border-left: none;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
+	margin-top: 0.5em;
+	background-color: lighten($color: #ffe599, $amount: 12%);
+	height: 6em;
+	width: 20em;
+	border: 2px solid $dark-avocado-green;
+	border-left: none;
+	border-top-right-radius: 1em;
+	border-bottom-right-radius: 1em;
 
-  h3 {
-    color: $dark-avocado-green;
-    padding: 0;
-    margin: 0;
-    font-size: 1.5em;
-    text-align: center;
-  }
+	h3 {
+		color: $dark-avocado-green;
+		padding: 0;
+		margin: 0;
+		font-size: 1.5em;
+		text-align: center;
+	}
 
-  p {
-    text-align: center;
-  }
+	p {
+		text-align: center;
+	}
 }
 
 // ------------------------ Gameplay Function ------------------------------ //
 #gameplayFunctions {
-  margin-top: 0.5em;
-  background-color: lighten($color: #ffe599, $amount: 12%);
-  height: 12em;
-  width: 20em;
-  border: 2px solid $dark-avocado-green;
-  border-left: none;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
+	margin-top: 0.5em;
+	background-color: lighten($color: #ffe599, $amount: 12%);
+	height: 12em;
+	width: 20em;
+	border: 2px solid $dark-avocado-green;
+	border-left: none;
+	border-top-right-radius: 1em;
+	border-bottom-right-radius: 1em;
 
-  h3 {
-    color: $dark-avocado-green;
-    padding: 0;
-    margin: 0 0 0.5em;
-    font-size: 1.5em;
-    text-align: center;
-  }
+	h3 {
+		color: $dark-avocado-green;
+		padding: 0;
+		margin: 0 0 0.5em;
+		font-size: 1.5em;
+		text-align: center;
+	}
 
-  div {
-    text-align: center;
-  }
+	div {
+		text-align: center;
+	}
 }
 
 #checkWordsBtn {
-  background-color: $light-avocado-green;
-  color: $dark-avocado-green;
-  font-size: 1em;
-  font-weight: 500;
-  border-radius: 0.6em;
-  border: 1px solid $dark-avocado-green;
-  outline: none;
+	background-color: $light-avocado-green;
+	color: $dark-avocado-green;
+	font-size: 1em;
+	font-weight: 500;
+	border-radius: 0.6em;
+	border: 1px solid $dark-avocado-green;
+	outline: none;
 
-  &:hover {
-    cursor: pointer;
-    background-color: darken($color: $light-avocado-green, $amount: 5%);
-  }
+	&:hover {
+		cursor: pointer;
+		background-color: darken($color: $light-avocado-green, $amount: 5%);
+	}
 
-  &:active {
-    transform: translateY(1px);
-  }
+	&:active {
+		transform: translateY(1px);
+	}
+}
+
+// ------------------------ Player Tab ------------------------------ //
+
+#players-div {
+	position: fixed;
+	top: 42%;
+}
+
+.player-tab {
+	background-color: #ffe599;
+	border: 2px solid $dark-avocado-green;
+	position: absolute;
+	left: 0;
+	height: 2.5em;
+	border-left: none;
+	border-top-right-radius: 1em;
+	border-bottom-right-radius: 1em;
+	padding: 0.5em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	.player-tab-name {
+		padding-right: 0.3em;
+		padding-left: 0.3em;
+		// color: $dark-avocado-green;
+	}
+	.player-icon {
+		color: $dark-avocado-green;
+	}
 }
 
 // ------------------------ AlerBox Function ------------------------------ //
 #alertBox {
-  z-index: 10000;
-  grid-column: 2/3;
-  grid-row: 2/3;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: lighten($color: #ffe599, $amount: 12%);
-  height: 8em;
-  width: 16em;
-  border: 2px solid $dark-avocado-green;
-  border-radius: 5px;
+	z-index: 10000;
+	grid-column: 2/3;
+	grid-row: 2/3;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: #8b4513;
+	height: 8em;
+	width: 16em;
+	border: 2px solid $dark-avocado-green;
+	border-radius: 5px;
 
-  h3 {
-    color: $dark-avocado-green;
-    padding: 0;
-    margin: 0;
-    font-size: 1.5em;
-    // text-align: center;
-  }
+	h3 {
+		color: white;
+		padding: 0;
+		margin: 0;
+		font-size: 1.5em;
+		// text-align: center;
+	}
 
-  p {
-    text-align: center;
-  }
+	p {
+		text-align: center;
+		color: white;
+	}
 
-  button {
-    background-color: $light-avocado-green;
-    color: $dark-avocado-green;
-    font-size: 1em;
-    font-weight: 500;
-    border-radius: 0.6em;
-    border: 1px solid $dark-avocado-green;
-    outline: none;
+	button {
+		background-color: $light-avocado-green;
+		color: $dark-avocado-green;
+		font-size: 1em;
+		font-weight: 500;
+		border-radius: 0.6em;
+		border: 1px solid $dark-avocado-green;
+		outline: none;
 
-    &:hover {
-      cursor: pointer;
-      background-color: darken($color: $light-avocado-green, $amount: 5%);
-    }
+		&:hover {
+			cursor: pointer;
+			background-color: darken($color: $light-avocado-green, $amount: 5%);
+		}
 
-    &:active {
-      transform: translateY(1px);
-    }
-  }
+		&:active {
+			transform: translateY(1px);
+		}
+	}
 }
