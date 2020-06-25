@@ -1,10 +1,14 @@
 <!DOCTYPE >
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-  </head>
-  <body>
-    <main id="root"></main>
-    <script src="/build/bundle.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
+	</head>
+	<body>
+		<main id="root"></main>
+		<script src="/build/bundle.js"></script>
+		<script>
+			const socket = io.connect('http://localhost:3000');
+		</script>
+	</body>
 </html>
