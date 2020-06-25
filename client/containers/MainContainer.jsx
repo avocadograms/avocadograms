@@ -13,7 +13,7 @@ function MainContainer() {
   return (
     <div id='mainContainer'>
       <Navbar />
-      <GameContainer wordsArray={wordsArray} setWordsArray={setWordsArray} />
+      <GameContainer setWordsArray={setWordsArray} />
       <Dictionary wordsArray={wordsArray} />
     </div>
   );

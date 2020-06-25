@@ -1,32 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Tiles from '../components/Tiles.jsx';
 
-function TilesContainer() {
-  const [letters, setLetters] = useState([
-    'A',
-    'B',
-    'D',
-    'R',
-    'T',
-    'H',
-    'J',
-    'W',
-    'A',
-    'Q',
-    'O',
-    'A',
-    'B',
-    'D',
-    'R',
-    'T',
-    'H',
-    'J',
-    'W',
-    'A',
-    'Q',
-    'O',
-  ]);
-
+function TilesContainer({ letters }) {
   const tiles = letters.map((letter, i) => <Tiles letter={letter} key={`${letters}${i}`} />);
   return <div id='tilesContainer'> {tiles} </div>;
 }
