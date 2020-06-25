@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { GrSearch } from 'react-icons/gr';
-import { json } from 'body-parser';
 
 const SearchWord = (props) => {
 	const [definitionReturned, setDefinitionReturned] = useState('');
+	const [hasResults, setHasResults] = useState(false);
+	const [wordExists, setWordExists] = useState(true);
 	const [currSearchWord, setCurrSearchWord] = useState('');
-	const [currWordResult, setCurrWordResult] = useState([]);
+	const definitionReturnedRef = useRef(definitionReturned);
 
 	useEffect(() => {
-		console.log('results came');
-	}, [currWordResult]);
+		if (definitionReturnedRef.current.success === false) setWordExists(false);
+		else if (definitionReturnedRef.current.success === undefined)
+			setWordExists(true);
+	}, [hasResults]);
 
 	const handleKeyPress = (event) => {
 		if (event.key === 'Enter') {
@@ -31,18 +34,16 @@ const SearchWord = (props) => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log('data returned: ', data);
-				setCurrWordResult(data);
-				console.log('currWordResult', currWordResult);
+				definitionReturnedRef.current = data;
+				setHasResults(true);
+				console.log('definitionReturned: ', definitionReturnedRef.current);
 			})
 			.catch((err) => console.log(err));
-
-		setDefinitionReturned('a dog is a wonderful friend');
 	};
 
 	return (
 		<div id="word-search-div">
-			{!definitionReturned ? (
+			{!hasResults ? (
 				<div>
 					<h3>Search for a word: </h3>
 					<div id="search-input-div">
@@ -67,10 +68,23 @@ const SearchWord = (props) => {
 				</div>
 			) : (
 				<div id="word-search-results-div">
-					Yay, onclick works
+					{wordExists ? (
+						<div className="word-exists-div">
+							{/* {definitionReturnedRef.current.definitions[0]} */}
+							<p className="word-exists-p">This word exists!</p>
+						</div>
+					) : (
+						<div className="no-such-word-div">
+							<p className="no-such-word-p">Word not found..</p>
+						</div>
+					)}
+
 					<button
 						className="search-btns search-again-btn"
-						onClick={() => setDefinitionReturned('')}
+						onClick={() => {
+							setHasResults(false);
+							setDefinitionReturned('');
+						}}
 					>
 						Search again
 					</button>
