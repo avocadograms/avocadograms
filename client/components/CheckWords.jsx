@@ -165,24 +165,11 @@ function CheckWords({ setWordsArray }) {
 		return num;
 	};
 
-<<<<<<< HEAD
-	return (
-		<div id="checkWords">
-			<button type="button" onClick={wordsOnBoard}>
-				check your words
-			</button>
-			<div>
-				{`top position of board: ${boardPosition[0]} and left position of board: ${boardPosition[1]}`}
-			</div>
-		</div>
-	);
-=======
   return (
     <button id='checkWordsBtn' type='button' onClick={wordsOnBoard}>
       check your words
     </button>
   );
->>>>>>> 8899be6720ca009fc91c63eabe2d6f95c74e764a
 }
 
 export default CheckWords;
