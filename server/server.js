@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const path = require('path');
+//const cors = require('cors');
 
 const app = express();
 const PORT = 3000;
@@ -19,8 +20,14 @@ const router = require('./routes/routes');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+//app.use(cors());
 
 app.use(express.static(path.resolve(__dirname, '/client/assets')));
+
+// app.all('/', (req, res) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
+// });
 
 app.use('/', router);
 
