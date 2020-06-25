@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function CheckWords({ setWordsArray }) {
+function CheckWords({ setWordsArray, setOnBoardCount, toggleAlertNumIslands }) {
   const [boardPosition, setBoardPosition] = useState([]);
   const [boardDimensions, setBoardDimensions] = useState([]);
 
@@ -45,31 +45,32 @@ function CheckWords({ setWordsArray }) {
 		return [tileTop, tileLeft];
 	};
 
-	const tilesOnBoard = () => {
-		const maxTop = boardPosition[0] + boardDimensions[0];
-		const maxLeft = boardPosition[1] + boardDimensions[1];
-		const tiles = document.querySelectorAll('.tiles');
-		const tilesArray = Array.apply(null, tiles).filter((tile) => {
-			const tilePosition = getTilePosition(tile);
-			return (
-				tilePosition[0] > boardPosition[0] &&
-				tilePosition[0] < maxTop - tile.offsetHeight &&
-				tilePosition[1] > boardPosition[1] &&
-				tilePosition[1] < maxLeft - tile.offsetWidth
-			);
-		});
-		const lettersAndPositions = tilesArray.map((tile) => {
-			const tilePosition = getTilePosition(tile);
-			return {
-				letter: tile.innerText,
-				position: {
-					top: tilePosition[0],
-					left: tilePosition[1],
-				},
-			};
-		});
-		return lettersAndPositions;
-	};
+  const tilesOnBoard = () => {
+    const maxTop = boardPosition[0] + boardDimensions[0];
+    const maxLeft = boardPosition[1] + boardDimensions[1];
+    const tiles = document.querySelectorAll('.tiles');
+    const tilesArray = Array.apply(null, tiles).filter(tile => {
+      const tilePosition = getTilePosition(tile);
+      return (
+        tilePosition[0] > boardPosition[0] &&
+        tilePosition[0] < maxTop - tile.offsetHeight &&
+        tilePosition[1] > boardPosition[1] &&
+        tilePosition[1] < maxLeft - tile.offsetWidth
+      );
+    });
+    const lettersAndPositions = tilesArray.map(tile => {
+      const tilePosition = getTilePosition(tile);
+      return {
+        letter: tile.innerText,
+        position: {
+          top: tilePosition[0],
+          left: tilePosition[1],
+        },
+      };
+    });
+    setOnBoardCount(lettersAndPositions.length);
+    return lettersAndPositions;
+  };
 
 	const wordsOnBoard = () => {
 		const tiles = tilesOnBoard();
@@ -94,18 +95,18 @@ function CheckWords({ setWordsArray }) {
 			boardGrid[gridY][gridX] = tile.letter;
 		}
 
-		const islands = numIslands(JSON.parse(JSON.stringify(boardGrid)));
-		if (islands > 1) {
-			console.log('Please connect all of your tiles!');
-			return;
-		} else if (islands < 1) {
-			console.log('You need to add some tiles to the board!');
-			return;
-		} else {
-			console.log('checking words');
-			return playedWords(boardGrid);
-		}
-	};
+    const islands = numIslands(JSON.parse(JSON.stringify(boardGrid)));
+    if (islands > 1) {
+      toggleAlertNumIslands([true, 'Please connect all of your tiles!']);
+      return;
+    } else if (islands < 1) {
+      toggleAlertNumIslands([true, 'You need to add some tiles to the board!']);
+      return;
+    } else {
+      toggleAlertNumIslands([false, '']);
+      return playedWords(boardGrid);
+    }
+  };
 
   const playedWords = grid => {
     const words = [];

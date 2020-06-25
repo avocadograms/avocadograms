@@ -3,10 +3,20 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 //const cors = require('cors');
 
-const router = require('./routes/routes');
 const app = express();
 const PORT = 3000;
 
+const server = app.listen(PORT, () => {
+	console.log(`Listening on port ${PORT}`);
+});
+const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+	console.log('socket is connected!');
+	console.log('socket.id is: ', socket.id);
+});
+
+const router = require('./routes/routes');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -34,8 +44,4 @@ app.use((err, req, res, next) => {
 	};
 	const errorObj = { ...defaultError, err };
 	res.status(errorObj.status).send(errorObj);
-});
-
-app.listen(PORT, () => {
-	console.log(`Listening on port ${PORT}...`);
 });

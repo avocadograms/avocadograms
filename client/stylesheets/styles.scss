@@ -118,12 +118,15 @@ input {
 }
 
 #board {
-	margin-top: 20px;
-	grid-column: 2/3;
-	height: 560px;
-	border: 2px solid $dark-avocado-green;
-	border-radius: 5px;
-	box-shadow: 2px 2px 5px 1px #8c8c8c;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  margin-top: 20px;
+  grid-column: 2/3;
+  height: 560px;
+  border: 2px solid $dark-avocado-green;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px #8c8c8c;
 }
 
 #tilesContainer {
@@ -302,7 +305,7 @@ input {
 }
 
 // ------------------------ Tile Tracker ------------------------------ //
-#tileTracker {
+#tilesTracker {
   margin-top: 0.5em;
   background-color: lighten($color: #ffe599, $amount: 12%);
   height: 6em;
@@ -313,9 +316,14 @@ input {
   border-bottom-right-radius: 1em;
 
   h3 {
+    color: $dark-avocado-green;
     padding: 0;
     margin: 0;
     font-size: 1.5em;
+    text-align: center;
+  }
+
+  p {
     text-align: center;
   }
 }
@@ -332,9 +340,14 @@ input {
   border-bottom-right-radius: 1em;
 
   h3 {
+    color: $dark-avocado-green;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0.5em;
     font-size: 1.5em;
+    text-align: center;
+  }
+
+  div {
     text-align: center;
   }
 }
@@ -355,5 +368,52 @@ input {
 
   &:active {
     transform: translateY(1px);
+  }
+}
+
+// ------------------------ AlerBox Function ------------------------------ //
+#alertBox {
+  z-index: 10000;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: lighten($color: #ffe599, $amount: 12%);
+  height: 8em;
+  width: 16em;
+  border: 2px solid $dark-avocado-green;
+  border-radius: 5px;
+
+  h3 {
+    color: $dark-avocado-green;
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+    // text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  button {
+    background-color: $light-avocado-green;
+    color: $dark-avocado-green;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 0.6em;
+    border: 1px solid $dark-avocado-green;
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+      background-color: darken($color: $light-avocado-green, $amount: 5%);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
   }
 }
