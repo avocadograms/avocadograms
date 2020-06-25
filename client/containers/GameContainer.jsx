@@ -7,7 +7,9 @@ import letterList, { letterFrequencies } from '../constants/letterPool';
 
 function GameContainer({ setWordsArray }) {
   const [letters, setLetters] = useState([]);
+  const [onBoardCount, setOnBoardCount] = useState(0);
   const [letterPool, setLetterPool] = useState(letterFrequencies);
+  const [alertNumIslands, toggleAlertNumIslands] = useState([false, '']);
 
   useEffect(() => {
     let randomLetters = [];
@@ -27,10 +29,14 @@ function GameContainer({ setWordsArray }) {
   return (
     <div id='gameContainer'>
       <div>
-        <TilesTracker />
-        <GameplayFunctions setWordsArray={setWordsArray} />
+        <TilesTracker totalLetters={letters.length} onBoardCount={onBoardCount} />
+        <GameplayFunctions
+          setWordsArray={setWordsArray}
+          setOnBoardCount={setOnBoardCount}
+          toggleAlertNumIslands={toggleAlertNumIslands}
+        />
       </div>
-      <Board />
+      <Board alertNumIslands={alertNumIslands} toggleAlertNumIslands={toggleAlertNumIslands} />
       <TilesContainer letters={letters} />
     </div>
   );

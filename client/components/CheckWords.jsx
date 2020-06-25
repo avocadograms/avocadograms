@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function CheckWords({ setWordsArray }) {
+function CheckWords({ setWordsArray, setOnBoardCount, toggleAlertNumIslands }) {
   const [boardPosition, setBoardPosition] = useState([]);
   const [boardDimensions, setBoardDimensions] = useState([]);
 
@@ -62,6 +62,7 @@ function CheckWords({ setWordsArray }) {
         },
       };
     });
+    setOnBoardCount(lettersAndPositions.length);
     return lettersAndPositions;
   };
 
@@ -84,13 +85,13 @@ function CheckWords({ setWordsArray }) {
 
     const islands = numIslands(JSON.parse(JSON.stringify(boardGrid)));
     if (islands > 1) {
-      console.log('Please connect all of your tiles!');
+      toggleAlertNumIslands([true, 'Please connect all of your tiles!']);
       return;
     } else if (islands < 1) {
-      console.log('You need to add some tiles to the board!');
+      toggleAlertNumIslands([true, 'You need to add some tiles to the board!']);
       return;
     } else {
-      console.log('checking words');
+      toggleAlertNumIslands([false, '']);
       return playedWords(boardGrid);
     }
   };

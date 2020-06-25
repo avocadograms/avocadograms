@@ -1,9 +1,12 @@
 import React from 'react';
 
-function TilesTracker() {
+function TilesTracker({ totalLetters, onBoardCount }) {
   return (
-    <div id='tileTracker'>
-      <h3> Tile Tracker </h3>
+    <div id='tilesTracker'>
+      <h3> Tiles Tracker </h3>
+      <p>
+        <b>Tiles Remaining: </b> {`${onBoardCount}/${totalLetters}`}
+      </p>
     </div>
   );
 }
