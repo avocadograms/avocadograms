@@ -6,7 +6,7 @@ function GameplayFunction({ setWordsArray, setOnBoardCount, toggleAlertNumIsland
     <div id='gameplayFunctions'>
       <div>
         <h3> Functions </h3>
-        Check played words:
+        {'Check played words: '}
         <CheckWords
           setWordsArray={setWordsArray}
           setOnBoardCount={setOnBoardCount}
