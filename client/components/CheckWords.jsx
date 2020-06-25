@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function CheckWords() {
+function CheckWords({ setWordsArray }) {
   const [boardPosition, setBoardPosition] = useState([]);
   const [boardDimensions, setBoardDimensions] = useState([]);
 
@@ -121,8 +121,7 @@ function CheckWords() {
         }
       }
     }
-    console.log(words);
-    return words;
+    setWordsArray(words);
   };
 
   const numIslands = grid => {
@@ -148,14 +147,9 @@ function CheckWords() {
   };
 
   return (
-    <div id='checkWords'>
-      <button type='button' onClick={wordsOnBoard}>
-        check your words
-      </button>
-      <div>
-        {`top position of board: ${boardPosition[0]} and left position of board: ${boardPosition[1]}`}
-      </div>
-    </div>
+    <button type='button' onClick={wordsOnBoard}>
+      check your words
+    </button>
   );
 }
 

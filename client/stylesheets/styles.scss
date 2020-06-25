@@ -71,12 +71,12 @@ input {
   text-align: center;
   padding-top: 0.2em;
   color: yellowgreen;
-  text-shadow: 2px 2px black;
+  text-shadow: 2px 2px darken($color: #ffe599, $amount: 45%);
 }
 
 #gameContainer {
   display: grid;
-  grid-template-columns: auto 564px auto;
+  grid-template-columns: 1fr 564px 1fr;
 }
 
 #board {
@@ -113,10 +113,6 @@ input {
 
 .tiles:hover {
   cursor: pointer;
-}
-
-#checkWords {
-  grid-column: 2/3;
 }
 
 // ----------------------- Dictionary Tab ------------------------ //
@@ -245,5 +241,43 @@ input {
         }
       }
     }
+  }
+}
+
+// ------------------------ Tile Tracker ------------------------------ //
+#tileTracker {
+  margin-top: 0.5em;
+  background-color: lighten($color: #ffe599, $amount: 12%);
+  height: 6em;
+  width: 20em;
+  border: 2px solid $dark-avocado-green;
+  border-left: none;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+
+  h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
+
+// ------------------------ Gameplay Function ------------------------------ //
+#gameplayFunctions {
+  margin-top: 0.5em;
+  background-color: lighten($color: #ffe599, $amount: 12%);
+  height: 12em;
+  width: 20em;
+  border: 2px solid $dark-avocado-green;
+  border-left: none;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+
+  h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+    text-align: center;
   }
 }
