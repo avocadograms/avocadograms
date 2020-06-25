@@ -147,7 +147,7 @@ function CheckWords({ setWordsArray }) {
   };
 
   return (
-    <button type='button' onClick={wordsOnBoard}>
+    <button id='checkWordsBtn' type='button' onClick={wordsOnBoard}>
       check your words
     </button>
   );

@@ -126,6 +126,10 @@ input {
 
   .book-icon {
     color: darken($color: $dark-avocado-green, $amount: 15%);
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   #unexpanded-dict-tab {
@@ -186,6 +190,10 @@ input {
         font-weight: 800;
         border-radius: 0.6em;
         border: 1px solid $dark-avocado-green;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       #search-input-div {
@@ -290,5 +298,24 @@ input {
     margin: 0;
     font-size: 1.5em;
     text-align: center;
+  }
+}
+
+#checkWordsBtn {
+  background-color: $light-avocado-green;
+  color: $dark-avocado-green;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 0.6em;
+  border: 1px solid $dark-avocado-green;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($color: $light-avocado-green, $amount: 5%);
+  }
+
+  &:active {
+    transform: translateY(1px);
   }
 }
