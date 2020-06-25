@@ -39,6 +39,7 @@ function GameContainer({ setWordsArray }) {
 					setOnBoardCount={setOnBoardCount}
 					toggleAlertNumIslands={toggleAlertNumIslands}
 				/>
+				<div id="players-div">{/* <PlayerTab username={'Keiran'} /> */}</div>
 			</div>
 			<Board
 				alertNumIslands={alertNumIslands}
