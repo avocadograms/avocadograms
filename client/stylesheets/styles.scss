@@ -377,14 +377,14 @@ input {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	background-color: lighten($color: #ffe599, $amount: 12%);
+	background-color: #8b4513;
 	height: 8em;
 	width: 16em;
 	border: 2px solid $dark-avocado-green;
 	border-radius: 5px;
 
 	h3 {
-		color: $dark-avocado-green;
+		color: white;
 		padding: 0;
 		margin: 0;
 		font-size: 1.5em;
@@ -393,6 +393,7 @@ input {
 
 	p {
 		text-align: center;
+		color: white;
 	}
 
 	button {
