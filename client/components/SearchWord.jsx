@@ -9,7 +9,6 @@ const SearchWord = (props) => {
 	const definitionReturnedRef = useRef(definitionReturned);
 
 	useEffect(() => {
-		console.log('in useEffect: ', definitionReturnedRef.current.success);
 		if (definitionReturnedRef.current.success === false) setWordExists(false);
 		else if (definitionReturnedRef.current.success === undefined)
 			setWordExists(true);
