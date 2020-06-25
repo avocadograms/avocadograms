@@ -264,7 +264,7 @@ input {
 }
 
 // ------------------------ Tile Tracker ------------------------------ //
-#tileTracker {
+#tilesTracker {
   margin-top: 0.5em;
   background-color: lighten($color: #ffe599, $amount: 12%);
   height: 6em;
@@ -278,6 +278,10 @@ input {
     padding: 0;
     margin: 0;
     font-size: 1.5em;
+    text-align: center;
+  }
+
+  p {
     text-align: center;
   }
 }
@@ -295,8 +299,12 @@ input {
 
   h3 {
     padding: 0;
-    margin: 0;
+    margin: 0 0 0.5em;
     font-size: 1.5em;
+    text-align: center;
+  }
+
+  div {
     text-align: center;
   }
 }

@@ -27,7 +27,7 @@ function GameContainer({ setWordsArray }) {
   return (
     <div id='gameContainer'>
       <div>
-        <TilesTracker />
+        <TilesTracker totalLetters={letters.length} />
         <GameplayFunctions setWordsArray={setWordsArray} />
       </div>
       <Board />
