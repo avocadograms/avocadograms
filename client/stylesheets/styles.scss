@@ -327,3 +327,46 @@ input {
     transform: translateY(1px);
   }
 }
+
+// ------------------------ AlerBox Function ------------------------------ //
+#alertBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: lighten($color: #ffe599, $amount: 12%);
+  height: 8em;
+  width: 16em;
+  border: 2px solid $dark-avocado-green;
+  border-radius: 5px;
+
+  h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+    // text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  button {
+    background-color: $light-avocado-green;
+    color: $dark-avocado-green;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 0.6em;
+    border: 1px solid $dark-avocado-green;
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+      background-color: darken($color: $light-avocado-green, $amount: 5%);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
