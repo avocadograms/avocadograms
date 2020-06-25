@@ -4,40 +4,46 @@ function CheckWords({ setWordsArray, setOnBoardCount, toggleAlertNumIslands }) {
   const [boardPosition, setBoardPosition] = useState([]);
   const [boardDimensions, setBoardDimensions] = useState([]);
 
-  useEffect(() => {
-    function updateBoardPosition() {
-      const element = document.querySelector('#board');
-      const position = {
-        top: element.offsetTop,
-        left: element.offsetLeft,
-      };
-      setBoardPosition([position.top, position.left]);
-    }
-    if (!boardPosition.length) updateBoardPosition();
-    window.addEventListener('resize', updateBoardPosition);
-  }, []);
+	useEffect(() => {
+		function updateBoardPosition() {
+			const element = document.querySelector('#board');
+			const position = {
+				top: element.offsetTop,
+				left: element.offsetLeft,
+			};
+			setBoardPosition([position.top, position.left]);
+		}
+		if (!boardPosition.length) updateBoardPosition();
+		window.addEventListener('resize', updateBoardPosition);
+	}, []);
 
-  useEffect(() => {
-    const element = document.querySelector('#board');
-    const dimensions = {
-      height: element.offsetHeight,
-      width: element.offsetWidth,
-    };
-    setBoardDimensions([dimensions.height, dimensions.width]);
-  }, []);
+	useEffect(() => {
+		const element = document.querySelector('#board');
+		const dimensions = {
+			height: element.offsetHeight,
+			width: element.offsetWidth,
+		};
+		setBoardDimensions([dimensions.height, dimensions.width]);
+	}, []);
 
-  const getTilePosition = tile => {
-    const tileTransform = tile.style.transform;
-    const tileTransformTop = Number(
-      tileTransform.slice(tileTransform.indexOf(' ') + 1, tileTransform.length - 3)
-    );
-    const tileTransformLeft = Number(
-      tileTransform.slice(tileTransform.indexOf('(') + 1, tileTransform.indexOf('p'))
-    );
-    const tileTop = tile.offsetTop + tileTransformTop;
-    const tileLeft = tile.offsetLeft + tileTransformLeft;
-    return [tileTop, tileLeft];
-  };
+	const getTilePosition = (tile) => {
+		const tileTransform = tile.style.transform;
+		const tileTransformTop = Number(
+			tileTransform.slice(
+				tileTransform.indexOf(' ') + 1,
+				tileTransform.length - 3
+			)
+		);
+		const tileTransformLeft = Number(
+			tileTransform.slice(
+				tileTransform.indexOf('(') + 1,
+				tileTransform.indexOf('p')
+			)
+		);
+		const tileTop = tile.offsetTop + tileTransformTop;
+		const tileLeft = tile.offsetLeft + tileTransformLeft;
+		return [tileTop, tileLeft];
+	};
 
   const tilesOnBoard = () => {
     const maxTop = boardPosition[0] + boardDimensions[0];
@@ -66,22 +72,28 @@ function CheckWords({ setWordsArray, setOnBoardCount, toggleAlertNumIslands }) {
     return lettersAndPositions;
   };
 
-  const wordsOnBoard = () => {
-    const tiles = tilesOnBoard();
+	const wordsOnBoard = () => {
+		const tiles = tilesOnBoard();
 
-    const tileTemplate = document.querySelector('.tiles');
-    const boardGrid = new Array(Math.floor(boardDimensions[1] / tileTemplate.offsetWidth));
-    for (let i = 0; i < boardGrid.length; i++) {
-      boardGrid[i] = new Array(Math.floor(boardDimensions[0] / tileTemplate.offsetHeight)).fill(
-        '-'
-      );
-    }
+		const tileTemplate = document.querySelector('.tiles');
+		const boardGrid = new Array(
+			Math.floor(boardDimensions[1] / tileTemplate.offsetWidth)
+		);
+		for (let i = 0; i < boardGrid.length; i++) {
+			boardGrid[i] = new Array(
+				Math.floor(boardDimensions[0] / tileTemplate.offsetHeight)
+			).fill('-');
+		}
 
-    for (let tile of tiles) {
-      const gridY = Math.floor((tile.position.top - boardPosition[0]) / tileTemplate.offsetHeight);
-      const gridX = Math.floor((tile.position.left - boardPosition[1]) / tileTemplate.offsetWidth);
-      boardGrid[gridY][gridX] = tile.letter;
-    }
+		for (let tile of tiles) {
+			const gridY = Math.floor(
+				(tile.position.top - boardPosition[0]) / tileTemplate.offsetHeight
+			);
+			const gridX = Math.floor(
+				(tile.position.left - boardPosition[1]) / tileTemplate.offsetWidth
+			);
+			boardGrid[gridY][gridX] = tile.letter;
+		}
 
     const islands = numIslands(JSON.parse(JSON.stringify(boardGrid)));
     if (islands > 1) {
@@ -125,27 +137,34 @@ function CheckWords({ setWordsArray, setOnBoardCount, toggleAlertNumIslands }) {
     setWordsArray(words);
   };
 
-  const numIslands = grid => {
-    let num = 0;
-    const removeLetter = (i, j) => {
-      if (i < 0 || i >= grid.length || j < 0 || j >= grid[i].length || grid[i][j] === '-') return;
-      grid[i][j] = '-';
-      removeLetter(i - 1, j);
-      removeLetter(i + 1, j);
-      removeLetter(i, j - 1);
-      removeLetter(i, j + 1);
-      return 1;
-    };
+	const numIslands = (grid) => {
+		let num = 0;
+		const removeLetter = (i, j) => {
+			if (
+				i < 0 ||
+				i >= grid.length ||
+				j < 0 ||
+				j >= grid[i].length ||
+				grid[i][j] === '-'
+			)
+				return;
+			grid[i][j] = '-';
+			removeLetter(i - 1, j);
+			removeLetter(i + 1, j);
+			removeLetter(i, j - 1);
+			removeLetter(i, j + 1);
+			return 1;
+		};
 
-    for (let i = 0; i < grid.length; i++) {
-      for (let j = 0; j < grid[i].length; j++) {
-        if (grid[i][j] !== '-') {
-          num += removeLetter(i, j);
-        }
-      }
-    }
-    return num;
-  };
+		for (let i = 0; i < grid.length; i++) {
+			for (let j = 0; j < grid[i].length; j++) {
+				if (grid[i][j] !== '-') {
+					num += removeLetter(i, j);
+				}
+			}
+		}
+		return num;
+	};
 
   return (
     <button id='checkWordsBtn' type='button' onClick={wordsOnBoard}>

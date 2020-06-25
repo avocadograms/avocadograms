@@ -3,3 +3,4 @@
 build/
 private/secrets.js
 package-lock.json
+secrets-oauth.js

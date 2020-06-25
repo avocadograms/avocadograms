@@ -13,7 +13,7 @@ body {
 	display: grid;
 	grid-template-columns: 4fr 3fr 4fr;
 	grid-template-rows: 20vh 50vh 30vh;
-	background-image: url('../../client/assets/avocado-background.jpg');
+	background-image: url('../../client/assets/original.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -31,15 +31,24 @@ body {
 	border: 1px solid #8c8c8c;
 	border-radius: 5px;
 	box-shadow: 2px 2px 5px 1px #8c8c8c;
+	padding: 4em;
+	// min-height: 450px;
+	// max-height: 450px;
+	// min-width: 300px;
+	min-height: 150px;
+	max-height: 150px;
+	width: auto;
+	text-align: center;
 }
 
 #submitLogin {
-	height: 3em;
+	height: 2.5em;
 	width: 6em;
 	border-radius: 5px;
 	border: 1px solid #00cc00;
 	background-color: #1aff1a;
 	outline: none;
+	margin-top: 1em;
 }
 
 #submitLogin:hover {
@@ -51,14 +60,44 @@ input {
 	// font-size: 14px;
 }
 
-#userLogin {
-	padding: 0.5em;
+#usernameInfo,
+#passwordInfo {
+	// padding: 0.5em;
+	float: left;
+	width: 25%;
+	margin-top: 6px;
 }
 
-#passLogin {
-	padding: 0.5em;
+#userInput {
+	float: left;
+	width: 75%;
+	margin-top: 6px;
 }
 
+#login-container {
+	background-color: #000;
+	width: 100%;
+	border-radius: 3px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 0px;
+
+	#login-link {
+		text-decoration: none;
+		color: #fff;
+		text-transform: uppercase;
+		cursor: default;
+		display: flex;
+		align-items: center;
+		height: 40px;
+
+		.github {
+			margin-left: 5px;
+		}
+	}
+}
 // ----------------------- Game Container ------------------------ //
 #navbar {
 	background-color: $dark-avocado-green;

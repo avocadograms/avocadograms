@@ -52,6 +52,47 @@ userController.updateScore = (req, res, next) => {
     })
 }
 
+
+userController.createOauthUser = (req, res, next) => {
+  // console.log('creating a user');
+  console.log('res.locals in createOauthUser', res.locals)
+  const { login } = res.locals;
+  // check database for existing username
+  const check = {
+    text: `
+    SELECT name FROM users
+    WHERE name = ${login}`
+  }
+  db.query(check, (err, resp) => {
+    if (err) {
+      createUser();
+    } else {
+      console.log('db check: ', resp)
+      return next();
+    }
+  })
+
+  console.log('login is: ', login)
+  // create new user
+  const createUser = () => {
+    const query = {
+      text: `
+      INSERT INTO users ( name )
+      VALUES ($1)
+      `,
+      values: [login]
+    }
+
+    db.query(query, (err, newUser) => {
+      if (err) {
+        // console.log(`something's broken in userController.createUser`);
+        return next(err);
+      }
+      res.locals.newUser = newUser;
+      return next();
+    })
+  }
+}
 module.exports = userController;
 
 
@@ -61,7 +102,7 @@ module.exports = userController;
 
 CREATE TABLE USERS (
   user_id 	SERIAL PRIMARY KEY,
-  name 	VARCHAR(50),
+  name 	VARCHAR(50) uniq
   email 	VARCHAR(50) unique,
   password 	VARCHAR(50),
   current_session 	VARCHAR(50),
