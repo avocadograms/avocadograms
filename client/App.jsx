@@ -19,34 +19,20 @@ function App() {
     .catch((err) => err);
   }, []);
 
-  if (!isLoggedIn) {
-    return (
-      <div>
-        <LoginContainer />
-      </div>
-    )
-  } else {
+  if (isLoggedIn) {
     return (
       <div>
         <MainContainer />
       </div>
     )
+  } else {
+    return (
+      <div>
+        <LoginContainer />
+      </div>
+    )
   }
 
-  // return (
-  //   <Router>
-  //     <div>
-  //       <Switch>
-  //         <Route path="/">
-  //           <LoginContainer />
-  //         </Route>
-  //         <Route path="/game">
-  //           <MainContainer />
-  //         </Route>
-  //       </Switch>
-  //     </div>
-  //   </Router>
-  // );
 }
 
 export default App;

@@ -57,23 +57,41 @@ userController.createOauthUser = (req, res, next) => {
   // console.log('creating a user');
   console.log('res.locals in createOauthUser', res.locals)
   const { login } = res.locals;
-  console.log('login is: ', login)
-  const query = {
+  // check database for existing username
+  const check = {
     text: `
-    INSERT INTO users ( name )
-    VALUES ($1)
-    `,
-    values: [login]
+    SELECT name FROM users
+    WHERE name = ${login}`
   }
-
-  db.query(query, (err, newUser) => {
+  db.query(check, (err, resp) => {
     if (err) {
-      // console.log(`something's broken in userController.createUser`);
-      return next(err);
+      createUser();
+    } else {
+      console.log('db check: ', resp)
+      return next();
     }
-    res.locals.newUser = newUser;
-    return next();
   })
+
+  console.log('login is: ', login)
+  // create new user
+  const createUser = () => {
+    const query = {
+      text: `
+      INSERT INTO users ( name )
+      VALUES ($1)
+      `,
+      values: [login]
+    }
+
+    db.query(query, (err, newUser) => {
+      if (err) {
+        // console.log(`something's broken in userController.createUser`);
+        return next(err);
+      }
+      res.locals.newUser = newUser;
+      return next();
+    })
+  }
 }
 module.exports = userController;
 

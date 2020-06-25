@@ -5,7 +5,7 @@ const sessionController = {};
 
 sessionController.createSession = (req, res, next) => {
     console.log('in create session');
-    const token = jwt.sign(res.locals.login, secret, {expiresIn: "2h"});
+    const token = jwt.sign(res.locals.login, secret);
     res.cookie('name', res.locals.login);
     res.cookie('ssid', token, { httpOnly: true });
     return next();

@@ -18,12 +18,23 @@ router.put('/updatedUser', userController.updateScore, (req, res) => {
 	res.status(200).json(res.locals.updated);
 });
 
-router.get('/oauth-github', oauthController.authorize, oauthController.getUserAPI, userController.createOauthUser,sessionController.createSession, (req, res) => {
-    res.redirect('/')
+router.get('/oauth-github', (req,res,next) => {
+  console.log('inside /oauth-github ')
+  return next();
+}, oauthController.authorize, oauthController.getUserAPI, userController.createOauthUser,sessionController.createSession, (req, res) => {
+  res.redirect('/')
 })
 
-router.get('/oauth', (req, res) =>
-    res.redirect(`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user:email`)
+router.get('/oauth',
+(req,res,next) => {
+  console.log('inside /oauth ')
+  return next();
+},
+(req, res) =>
+	res.header("Access-Control-Allow-Origin", "*")
+	 	//.mode("no-cors")
+		.header("Access-Control-Allow-Headers", "X-Requested-With")
+		.redirect(`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user:email`)
 );
 
 router.post('/findWord', wordController.findDefinition, (req, res) => {
