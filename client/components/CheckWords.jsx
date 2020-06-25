@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-function CheckWords(props) {
-	const [boardPosition, setBoardPosition] = useState([]);
-	const [boardDimensions, setBoardDimensions] = useState([]);
+function CheckWords({ setWordsArray }) {
+  const [boardPosition, setBoardPosition] = useState([]);
+  const [boardDimensions, setBoardDimensions] = useState([]);
 
 	useEffect(() => {
 		function updateBoardPosition() {
@@ -107,34 +107,34 @@ function CheckWords(props) {
 		}
 	};
 
-	const playedWords = (grid) => {
-		const words = [];
-		for (let i = 0; i < grid.length; i++) {
-			let wordHor = '';
-			let wordVert = '';
-			for (let j = 0; j < grid[i].length; j++) {
-				if (grid[i][j] !== '-') {
-					wordHor += grid[i][j];
-				}
-				if (grid[j][i] !== '-') {
-					wordVert += grid[j][i];
-				}
-				if (grid[i][j] === '-' || j === grid[i].length - 1) {
-					if (wordHor.length > 1) {
-						words.push(wordHor);
-					}
-					wordHor = '';
-				}
-				if (grid[j][i] === '-' || i === grid.length - 1) {
-					if (wordVert.length > 1) {
-						words.push(wordVert);
-					}
-					wordVert = '';
-				}
-			}
-		}
-		props.setWordsArray(words);
-	};
+  const playedWords = grid => {
+    const words = [];
+    for (let i = 0; i < grid.length; i++) {
+      let wordHor = '';
+      let wordVert = '';
+      for (let j = 0; j < grid[i].length; j++) {
+        if (grid[i][j] !== '-') {
+          wordHor += grid[i][j];
+        }
+        if (grid[j][i] !== '-') {
+          wordVert += grid[j][i];
+        }
+        if (grid[i][j] === '-' || j === grid[i].length - 1) {
+          if (wordHor.length > 1) {
+            words.push(wordHor);
+          }
+          wordHor = '';
+        }
+        if (grid[j][i] === '-' || i === grid.length - 1) {
+          if (wordVert.length > 1) {
+            words.push(wordVert);
+          }
+          wordVert = '';
+        }
+      }
+    }
+    setWordsArray(words);
+  };
 
 	const numIslands = (grid) => {
 		let num = 0;
@@ -165,6 +165,7 @@ function CheckWords(props) {
 		return num;
 	};
 
+<<<<<<< HEAD
 	return (
 		<div id="checkWords">
 			<button type="button" onClick={wordsOnBoard}>
@@ -175,6 +176,13 @@ function CheckWords(props) {
 			</div>
 		</div>
 	);
+=======
+  return (
+    <button id='checkWordsBtn' type='button' onClick={wordsOnBoard}>
+      check your words
+    </button>
+  );
+>>>>>>> 8899be6720ca009fc91c63eabe2d6f95c74e764a
 }
 
 export default CheckWords;
