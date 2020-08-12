@@ -2,7 +2,7 @@
 
 ## Features
 
-#### When you first start the app, you'll be directed to log in through GitHub
+#### When you first start the app, you'll be directed to log in with GitHub
 
 <p align="center">
     <img src="client/assets/loginScreen.png" width=70%>
