@@ -1,6 +1,6 @@
 <h1 align="center">Avocadograms</h1>
 
-## Features
+### Features
 
 #### When you first start the app, you'll be directed to log in with GitHub
 
