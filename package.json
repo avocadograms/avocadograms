@@ -22,7 +22,7 @@
     "html-webpack-plugin": "^4.3.0",
     "jsonwebtoken": "^8.5.1",
     "mdi-react": "^7.3.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "path": "^0.12.7",
     "pg": "^8.2.1",
     "react": "^16.13.1",
